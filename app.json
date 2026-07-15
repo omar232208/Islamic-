@@ -13,7 +13,12 @@
       "buildType": "apk"
     },
     "plugins": [
-      ["expo-router", { "origin": "https://replit.com/" }],
+      [
+        "expo-router",
+        {
+          "origin": "https://replit.com/"
+        }
+      ],
       "expo-font",
       "expo-web-browser"
     ],
@@ -21,11 +26,11 @@
       "typedRoutes": true,
       "reactCompiler": true
     },
+    "owner": "omarmg831s-team",
     "extra": {
       "eas": {
-        "projectId": "bd149a97-fed2-4441-857a-9d9924581b51"
+        "projectId": "8944a752-7a62-483d-bb85-e0c09004e0e2"
       }
-    },
-    "owner": "omargomaa451s-team"
+    }
   }
 }
