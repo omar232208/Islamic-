@@ -3,10 +3,24 @@ import { Platform, StyleSheet, useColorScheme, View } from 'react-native';
 import { useColors } from '@/hooks/useColors';
 import { Feather } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
-import { isLiquidGlassAvailable } from 'expo-glass-effect';
 import { Tabs } from 'expo-router';
-import { Icon, Label, NativeTabs } from 'expo-router/unstable-native-tabs';
-import { SymbolView } from 'expo-symbols';
+
+let Icon: any = null;
+let Label: any = null;
+let NativeTabs: any = null;
+let SymbolView: any = null;
+
+try {
+  const NativeTabsModule = require('expo-router/unstable-native-tabs');
+  Icon = NativeTabsModule.Icon;
+  Label = NativeTabsModule.Label;
+  NativeTabs = NativeTabsModule.NativeTabs;
+} catch {}
+try { SymbolView = require('expo-symbols').SymbolView; } catch {}
+
+function isLiquidGlassAvailable(): boolean {
+  try { return require('expo-glass-effect').isLiquidGlassAvailable(); } catch { return false; }
+}
 
 function NativeTabLayout() {
   return (
