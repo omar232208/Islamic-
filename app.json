@@ -7,7 +7,7 @@
     "icon": "./artifacts/mobile/assets/images/icon.png",
     "scheme": "mobile",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": false,
+    "newArchEnabled": true,
     "android": {
       "package": "com.islamicapp.mobile",
       "buildType": "apk"
