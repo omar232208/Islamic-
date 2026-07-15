@@ -1,4 +1,4 @@
-const CACHE = "islamic-app-v1";
+const CACHE = "islamic-app-v2";
 const URLS = [
   "/",
   "/index.html",
@@ -20,7 +20,7 @@ self.addEventListener("activate", function(e) {
       return Promise.all(
         keys.filter(function(k) { return k !== CACHE; }).map(function(k) { return caches.delete(k); })
       );
-    })
+    }).then(function() { return self.clients.claim(); })
   );
 });
 
