@@ -10,7 +10,8 @@
     "newArchEnabled": false,
     "android": {
       "package": "com.islamicapp.mobile",
-      "buildType": "apk"
+      "buildType": "apk",
+      "jsEngine": "jsc"
     },
     "plugins": [
       [
