@@ -1,11 +1,31 @@
 {
   "expo": {
+    "name": "Islamic App",
+    "slug": "mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./artifacts/mobile/assets/images/icon.png",
+    "scheme": "mobile",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "android": {
+      "package": "com.islamicapp.mobile",
+      "buildType": "apk"
+    },
+    "plugins": [
+      ["expo-router", { "origin": "https://replit.com/" }],
+      "expo-font",
+      "expo-web-browser"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
     "extra": {
       "eas": {
         "projectId": "bd149a97-fed2-4441-857a-9d9924581b51"
       }
     },
-    "owner": "omargomaa451s-team",
-    "slug": "omar"
+    "owner": "omargomaa451s-team"
   }
 }
