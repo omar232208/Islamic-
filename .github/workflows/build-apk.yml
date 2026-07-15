@@ -53,14 +53,12 @@ jobs:
 
       - name: Configure release signing with debug keystore
         run: |
-          python3 << 'PYEOF'
+          python3 -c "
 with open('android/app/build.gradle', 'r') as f:
     lines = f.readlines()
 
 out = []
-android_open = 0
 signing_added = False
-in_buildtypes = False
 in_release = False
 
 for line in lines:
@@ -69,10 +67,10 @@ for line in lines:
         out.append(line)
         out.append('    signingConfigs {\n')
         out.append('        release {\n')
-        out.append('            storeFile file("debug.keystore")\n')
-        out.append('            storePassword "android"\n')
-        out.append('            keyAlias "androiddebugkey"\n')
-        out.append('            keyPassword "android"\n')
+        out.append('            storeFile file(\"debug.keystore\")\n')
+        out.append('            storePassword \"android\"\n')
+        out.append('            keyAlias \"androiddebugkey\"\n')
+        out.append('            keyPassword \"android\"\n')
         out.append('        }\n')
         out.append('    }\n')
         signing_added = True
@@ -88,7 +86,7 @@ for line in lines:
 with open('android/app/build.gradle', 'w') as f:
     f.writelines(out)
 print('build.gradle patched for release signing')
-PYEOF
+"
 
       - name: Bundle JS and build Release APK
         run: cd android && ./gradlew assembleRelease --no-daemon
