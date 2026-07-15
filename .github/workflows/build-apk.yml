@@ -36,12 +36,10 @@ jobs:
       - name: Typecheck
         run: pnpm run typecheck
 
-      - name: Build APK via EAS
-        run: eas build --local --platform android --profile production --output ./Islamic-App.apk --non-interactive
+      - name: Build APK via EAS (cloud)
+        run: eas build --platform android --profile production --non-interactive --wait
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-          ANDROID_HOME: /usr/local/lib/android/sdk
-          GRADLE_OPTS: -Dorg.gradle.daemon=false -Dorg.gradle.jvmargs="-Xmx4g"
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
