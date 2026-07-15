@@ -1,6 +1,7 @@
 {
   "name": "workspace",
   "version": "0.0.0",
+  "main": "expo-router/entry",
   "license": "MIT",
   "scripts": {
     "preinstall": "node -e \"var p=require('path'),f=['package-lock.json','yarn.lock'];f.forEach(function(x){try{require('fs').unlinkSync(p.join(process.cwd(),x))}catch(e){}});var ua=process.env.npm_config_user_agent||'';if(ua.indexOf('pnpm')===-1){console.error('Use pnpm please');process.exit(1)}\"",
