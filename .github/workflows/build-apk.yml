@@ -28,7 +28,7 @@ jobs:
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --ignore-scripts
 
       - name: Install EAS CLI
         run: npm install -g eas-cli
