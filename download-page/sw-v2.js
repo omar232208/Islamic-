@@ -1,16 +1,6 @@
-const CACHE = "islamic-app-v2";
-const URLS = [
-  "/",
-  "/index.html",
-  "/manifest.json"
-];
+const CACHE = "islamic-app-v3";
 
 self.addEventListener("install", function(e) {
-  e.waitUntil(
-    caches.open(CACHE).then(function(cache) {
-      return cache.addAll(URLS);
-    })
-  );
   self.skipWaiting();
 });
 
@@ -25,6 +15,14 @@ self.addEventListener("activate", function(e) {
 });
 
 self.addEventListener("fetch", function(e) {
+  if (e.request.mode === "navigate") {
+    e.respondWith(
+      fetch(e.request).catch(function() {
+        return caches.match(e.request);
+      })
+    );
+    return;
+  }
   e.respondWith(
     caches.match(e.request).then(function(r) {
       return r || fetch(e.request);
