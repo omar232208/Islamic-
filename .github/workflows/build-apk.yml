@@ -38,11 +38,24 @@ jobs:
       - name: Expo prebuild
         run: npx expo prebuild --platform android --no-install
 
-      - name: Bundle JS and Build APK
-        run: npx expo run:android --no-install --variant debug 2>&1
+      - name: Generate debug keystore
+        run: |
+          rm -f android/app/debug.keystore
+          keytool -genkey -v -keystore android/app/debug.keystore \
+            -storepass android -alias androiddebugkey -keypass android \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -dname "CN=, OU=, O=, L=, S=, C="
+
+      - name: Add release signing to build.gradle
+        run: |
+          sed -i 's/android {/android {\n    signingConfigs {\n        release {\n            storeFile file("debug.keystore")\n            storePassword "android"\n            keyAlias "androiddebugkey"\n            keyPassword "android"\n        }\n    }/' android/app/build.gradle
+          sed -i '/buildTypes {/,/^    }/s/release {/release {\n            signingConfig signingConfigs.release/' android/app/build.gradle
+
+      - name: Build Release APK
+        run: cd android && ./gradlew assembleRelease --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: Islamic-App-APK
-          path: android/app/build/outputs/apk/debug/*.apk
+          path: android/app/build/outputs/apk/release/*.apk

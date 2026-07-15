@@ -71,7 +71,7 @@ onlyBuiltDependencies:
   - esbuild
   - msw
   - unrs-resolver
-  - react-native-reanimated
+  # - react-native-reanimated
 
 overrides:
   # replit uses linux-x64 only, we can exclude all other platforms
