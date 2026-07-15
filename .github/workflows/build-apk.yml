@@ -21,12 +21,6 @@ jobs:
         with:
           version: 11
 
-      - name: Cache pnpm store
-        uses: actions/cache@v4
-        with:
-          path: ~/.local/share/pnpm/store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
-
       - name: Install dependencies
         run: |
           pnpm install --ignore-scripts
@@ -44,52 +38,19 @@ jobs:
       - name: Prebuild (generate android directory)
         run: npx expo prebuild --platform android --no-install
 
-      - name: Create debug keystore for release signing
+      - name: Generate debug keystore
         run: |
           keytool -genkey -v -keystore android/app/debug.keystore \
             -storepass android -alias androiddebugkey -keypass android \
             -keyalg RSA -keysize 2048 -validity 10000 \
             -dname "CN=, OU=, O=, L=, S=, C="
 
-      - name: Configure release signing with debug keystore
+      - name: Add release signing to build.gradle
         run: |
-          cat > patch_gradle.py << 'EOFSCRIPT'
-with open('android/app/build.gradle', 'r') as f:
-    lines = f.readlines()
+          sed -i 's/android {/android {\n    signingConfigs {\n        release {\n            storeFile file("debug.keystore")\n            storePassword "android"\n            keyAlias "androiddebugkey"\n            keyPassword "android"\n        }\n    }/' android/app/build.gradle
+          sed -i 's/release {/release {\n            signingConfig signingConfigs.release/' android/app/build.gradle
 
-out = []
-signing_added = False
-in_release = False
-
-for line in lines:
-    stripped = line.strip()
-    if stripped == 'android {' and not signing_added:
-        out.append(line)
-        out.append('    signingConfigs {\n')
-        out.append('        release {\n')
-        out.append('            storeFile file("debug.keystore")\n')
-        out.append('            storePassword "android"\n')
-        out.append('            keyAlias "androiddebugkey"\n')
-        out.append('            keyPassword "android"\n')
-        out.append('        }\n')
-        out.append('    }\n')
-        signing_added = True
-    elif stripped == 'release {' and not in_release:
-        out.append('        release {\n')
-        out.append('            signingConfig signingConfigs.release\n')
-        in_release = True
-    else:
-        if in_release and stripped == '}':
-            in_release = False
-        out.append(line)
-
-with open('android/app/build.gradle', 'w') as f:
-    f.writelines(out)
-print('build.gradle patched for release signing')
-EOFSCRIPT
-          python3 patch_gradle.py
-
-      - name: Bundle JS and build Release APK
+      - name: Build Release APK
         run: cd android && ./gradlew assembleRelease --no-daemon
 
       - name: Upload APK
