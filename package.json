@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
+    "preinstall": "node -e \"var p=require('path'),f=['package-lock.json','yarn.lock'];f.forEach(function(x){try{require('fs').unlinkSync(p.join(process.cwd(),x))}catch(e){}});var ua=process.env.npm_config_user_agent||'';if(ua.indexOf('pnpm')===-1){console.error('Use pnpm please');process.exit(1)}\"",
     "build": "pnpm run typecheck && pnpm -r --if-present run build",
     "typecheck:libs": "tsc --build",
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
