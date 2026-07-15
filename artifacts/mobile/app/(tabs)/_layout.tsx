@@ -2,14 +2,15 @@ import React from 'react';
 import { Platform, StyleSheet, useColorScheme, View } from 'react-native';
 import { useColors } from '@/hooks/useColors';
 import { Feather } from '@expo/vector-icons';
-import { BlurView } from 'expo-blur';
 import { Tabs } from 'expo-router';
 
+let BlurView: any = null;
 let Icon: any = null;
 let Label: any = null;
 let NativeTabs: any = null;
 let SymbolView: any = null;
 
+try { BlurView = require('expo-blur').BlurView; } catch {}
 try {
   const NativeTabsModule = require('expo-router/unstable-native-tabs');
   Icon = NativeTabsModule.Icon;
