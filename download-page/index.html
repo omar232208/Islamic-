@@ -3,330 +3,642 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>التطبيق الإسلامي - أوقات الصلاة والقبلة</title>
-  <meta name="description" content="تطبيق إسلامي متكامل: أوقات الصلاة بدقة، اتجاه القبلة، أذكار، قرآن كريم، والمزيد" />
+  <title>التطبيق الإسلامي — أوقات الصلاة، القبلة، الأذكار والقرآن</title>
+  <meta name="description" content="تطبيق إسلامي متكامل: أوقات الصلاة بدقة عالية، اتجاه القبلة، أذكار الصباح والمساء، قرآن كريم مع التفسير. حمل التطبيق الآن مجاناً." />
+  <meta name="keywords" content="تطبيق إسلامي, أوقات الصلاة, القبلة, أذكار, قرآن, مواقيت الصلاة, بوصلة القبلة, إسلام, prayer times, qibla" />
+  <meta name="author" content="التطبيق الإسلامي" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="التطبيق الإسلامي — أوقات الصلاة والقبلة" />
+  <meta property="og:description" content="أوقات الصلاة بدقة، اتجاه القبلة، أذكار، قرآن كريم — تطبيق إسلامي متكامل" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://download-page-amber.vercel.app" />
+  <meta property="og:image" content="https://download-page-amber.vercel.app/og-image.png" />
+  <meta property="og:locale" content="ar_AR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="التطبيق الإسلامي" />
+  <meta name="twitter:description" content="أوقات الصلاة، القبلة، الأذكار والقرآن في تطبيق واحد" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0a1f14" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="التطبيق الإسلامي" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='32' fill='%230a1f14'/%3E%3Cpath d='M96 32L115.6 76.4L160 96L115.6 115.6L96 160L76.4 115.6L32 96L76.4 76.4Z' fill='%23c9a84c'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a1f14'/%3E%3Cpath d='M32 8L39.2 24.8L56 32L39.2 39.2L32 56L24.8 39.2L8 32L24.8 24.8Z' fill='%23c9a84c'/%3E%3C/svg%3E" />
+
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+  <!-- Fonts + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "التطبيق الإسلامي",
+    "operatingSystem": "Android 8.0+",
+    "applicationCategory": "Lifestyle",
+    "description": "تطبيق إسلامي متكامل: أوقات الصلاة، اتجاه القبلة، أذكار، قرآن كريم",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "التطبيق الإسلامي"
+    }
+  }
+  </script>
+
   <style>
     :root {
-      --primary: #1a6b3c;
-      --primary-dark: #0f4d2a;
-      --primary-light: #2d8a4e;
+      --green-900: #0a1f14;
+      --green-800: #0f2d1e;
+      --green-700: #1a4f32;
+      --green-600: #267347;
+      --green-500: #2d8a4e;
+      --green-400: #4ca86c;
       --gold: #c9a84c;
       --gold-light: #e8d48b;
-      --dark: #0d1b12;
-      --dark-card: #132a1a;
-      --text: #e8f0ec;
-      --text-muted: #8fa89a;
-      --radius: 16px;
-      --shadow: 0 8px 32px rgba(0,0,0,0.3);
+      --gold-dark: #a8882e;
+      --text: #e2ede6;
+      --text-muted: #7a9e8a;
+      --text-dim: #4a6b58;
+      --radius: 20px;
+      --transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Cairo', sans-serif;
-      background: var(--dark);
+      background: var(--green-900);
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.8;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
+    ::selection { background: var(--gold); color: var(--green-900); }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--green-900); }
+    ::-webkit-scrollbar-thumb { background: var(--green-600); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--green-500); }
 
-    /* Background Pattern */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 20% 50%, rgba(26,107,60,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 80%, rgba(13,27,18,0.5) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: 0;
+    /* Background */
+    .bg-glow {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 0;
+      overflow: hidden;
     }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-      position: relative;
-      z-index: 1;
+    .bg-glow span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      animation: float 20s ease-in-out infinite;
     }
+    .bg-glow span:nth-child(1) { width: 500px; height: 500px; background: var(--green-600); top: -10%; left: -5%; animation-delay: 0s; }
+    .bg-glow span:nth-child(2) { width: 400px; height: 400px; background: var(--gold); top: 40%; right: -8%; animation-delay: -5s; opacity: 0.08; }
+    .bg-glow span:nth-child(3) { width: 350px; height: 350px; background: var(--green-400); bottom: -5%; left: 30%; animation-delay: -10s; }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+    .pattern-overlay {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M50 0L61.8 38.2L100 50L61.8 61.8L50 100L38.2 61.8L0 50L38.2 38.2Z' fill='%23c9a84c' /%3E%3C/svg%3E");
+      background-size: 120px 120px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
-    /* ======== Hero ======== */
+    /* Navbar */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      transition: all 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(10, 31, 20, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    nav .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 18px; font-weight: 700; color: #fff;
+      text-decoration: none;
+    }
+    .nav-logo i { font-size: 22px; color: var(--gold); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none;
+      font-size: 14px; font-weight: 600;
+      transition: color 0.3s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold); transition: width 0.3s; border-radius: 2px;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Hero */
     .hero {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
       text-align: center;
-      padding: 80px 24px 60px;
+      padding: 120px 24px 60px;
       position: relative;
     }
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(201,168,76,0.12);
-      border: 1px solid rgba(201,168,76,0.25);
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-size: 14px;
-      color: var(--gold-light);
-      margin-bottom: 32px;
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.04));
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 10px 24px; border-radius: 50px;
+      font-size: 13px; color: var(--gold-light);
+      margin-bottom: 36px; letter-spacing: 0.5px;
     }
-    .hero-badge i { font-size: 12px; }
+    .hero-badge i { font-size: 10px; }
+    .hero-icon-wrap { position: relative; margin-bottom: 28px; }
+    .hero-icon-wrap::before {
+      content: ''; position: absolute; inset: -12px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.15), transparent);
+      animation: pulse-ring 3s ease-in-out infinite;
+    }
+    @keyframes pulse-ring {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.6; }
+    }
     .hero-icon {
-      width: 100px;
-      height: 100px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      width: 96px; height: 96px;
+      background: linear-gradient(145deg, var(--green-600), var(--green-800));
       border-radius: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-      color: var(--gold);
-      margin-bottom: 24px;
-      box-shadow: 0 12px 40px rgba(26,107,60,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 44px; color: var(--gold);
+      position: relative;
+      box-shadow: 0 16px 48px rgba(26,79,50,0.4);
     }
     .hero h1 {
       font-family: 'Amiri', serif;
-      font-size: clamp(36px, 6vw, 64px);
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 12px;
-      line-height: 1.2;
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 700; color: #fff;
+      margin-bottom: 8px; line-height: 1.15;
     }
-    .hero h1 span { color: var(--gold); }
-    .hero p {
-      font-size: clamp(16px, 2.5vw, 20px);
-      color: var(--text-muted);
-      max-width: 600px;
-      margin-bottom: 36px;
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
+    .hero-sub {
+      font-size: clamp(17px, 2.5vw, 21px);
+      color: var(--text-muted); max-width: 580px;
+      margin: 16px auto 40px; line-height: 1.9;
     }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 36px;
-      border-radius: 50px;
-      font-size: 17px;
-      font-weight: 700;
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 40px; border-radius: 50px;
+      font-size: 16px; font-weight: 700;
       text-decoration: none;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer; border: none;
       font-family: 'Cairo', sans-serif;
+      position: relative; overflow: hidden;
     }
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      background: linear-gradient(135deg, var(--green-600), var(--green-500));
       color: #fff;
-      box-shadow: 0 4px 20px rgba(26,107,60,0.4);
+      box-shadow: 0 4px 24px rgba(38,115,71,0.35);
     }
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(26,107,60,0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 40px rgba(38,115,71,0.5);
     }
     .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 1.5px solid rgba(255,255,255,0.15);
+      background: transparent; color: var(--text);
+      border: 1.5px solid rgba(255,255,255,0.12);
     }
-    .btn-outline:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-      transform: translateY(-2px);
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
+    .hero-stats {
+      display: flex; gap: 48px;
+      margin-top: 56px; padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.04);
     }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { font-size: 28px; font-weight: 900; color: #fff; display: block; }
+    .hero-stat-label { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
     .scroll-indicator {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: bounce 2s infinite;
-      color: var(--text-muted);
-      font-size: 20px;
+      position: absolute; bottom: 32px;
+      left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: var(--text-muted); font-size: 13px;
+      animation: fade-bounce 2.5s ease-in-out infinite;
     }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
+    .scroll-indicator i { font-size: 16px; }
+    @keyframes fade-bounce {
+      0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 1; transform: translateX(-50%) translateY(6px); }
     }
 
-    /* ======== Sections ======== */
-    section { padding: 80px 0; }
+    /* Section Shared */
+    section { padding: 100px 0; position: relative; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 2px;
+      color: var(--gold); margin-bottom: 12px;
+    }
     .section-title {
-      text-align: center;
-      font-size: clamp(28px, 4vw, 38px);
-      font-weight: 900;
-      margin-bottom: 12px;
+      font-size: clamp(30px, 4vw, 42px);
+      font-weight: 900; color: #fff; margin-bottom: 12px;
     }
-    .section-title span { color: var(--gold); }
-    .section-sub {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 17px;
-      max-width: 550px;
-      margin: 0 auto 48px;
+    .section-title span {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
+    .section-desc { color: var(--text-muted); font-size: 17px; max-width: 550px; margin: 0 auto; }
 
-    /* ======== Features ======== */
+    /* Features */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
     }
     .feature-card {
-      background: var(--dark-card);
+      background: linear-gradient(145deg, rgba(15,45,30,0.6), rgba(10,31,20,0.8));
       border: 1px solid rgba(255,255,255,0.04);
       border-radius: var(--radius);
-      padding: 32px 24px;
-      text-align: center;
-      transition: all 0.3s ease;
+      padding: 36px 28px; text-align: center;
+      transition: all 0.4s ease;
+      position: relative; overflow: hidden;
     }
+    .feature-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .feature-card:hover::before { opacity: 0.5; }
     .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(201,168,76,0.2);
-      box-shadow: var(--shadow);
+      transform: translateY(-6px);
+      border-color: rgba(201,168,76,0.15);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     }
     .feature-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, rgba(26,107,60,0.2), rgba(26,107,60,0.05));
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, rgba(38,115,71,0.25), rgba(38,115,71,0.05));
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; color: var(--gold);
+      margin: 0 auto 20px;
+      transition: transform 0.4s;
+    }
+    .feature-card:hover .feature-icon { transform: scale(1.1); }
+    .feature-card h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; color: #fff; }
+    .feature-card p { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+
+    /* Showcase — Phone Mockups */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 28px;
+    }
+    .phone-mockup {
+      aspect-ratio: 9/19;
+      background: linear-gradient(145deg, var(--green-800), rgba(10,31,20,0.9));
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 24px 16px;
+      position: relative; overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .phone-mockup::before {
+      content: '';
+      position: absolute; top: 8px; left: 50%;
+      transform: translateX(-50%);
+      width: 40%; height: 4px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 4px;
+    }
+    .phone-mockup:hover {
+      transform: translateY(-6px) scale(1.02);
+      border-color: rgba(201,168,76,0.12);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+    }
+    .phone-mockup .mock-icon {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.04));
       border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      color: var(--gold);
-      margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; color: var(--gold);
+      margin-bottom: 14px;
+      transition: transform 0.4s;
     }
-    .feature-card h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-    .feature-card p {
-      font-size: 14px;
-      color: var(--text-muted);
+    .phone-mockup:hover .mock-icon { transform: scale(1.1); }
+    .phone-mockup h4 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .phone-mockup p { font-size: 12px; color: var(--text-dim); text-align: center; line-height: 1.7; }
+    .phone-mockup .mock-label {
+      background: rgba(201,168,76,0.08);
+      padding: 3px 12px; border-radius: 20px;
+      font-size: 11px; color: var(--gold-light);
+      margin-top: auto;
     }
 
-    /* ======== Screenshots ======== */
-    .screenshots-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+    /* FAQ */
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item {
+      background: linear-gradient(145deg, rgba(15,45,30,0.4), rgba(10,31,20,0.6));
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s;
     }
-    .screenshot {
-      aspect-ratio: 9/19;
-      background: var(--dark-card);
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.06);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 14px;
+    .faq-item:hover { border-color: rgba(201,168,76,0.1); }
+    .faq-question {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 24px;
+      cursor: pointer;
+      font-size: 15px; font-weight: 600; color: #fff;
+      transition: color 0.3s;
+      user-select: none;
       gap: 12px;
     }
-    .screenshot i { font-size: 32px; color: var(--gold); opacity: 0.5; }
+    .faq-question:hover { color: var(--gold); }
+    .faq-question i { transition: transform 0.4s; color: var(--gold); font-size: 12px; }
+    .faq-item.open .faq-question i { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding: 0 24px;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 24px 18px;
+    }
+    .faq-answer p { color: var(--text-muted); font-size: 14px; line-height: 1.9; }
 
-    /* ======== Download ======== */
-    .download-section {
+    /* Download */
+    .download-wrap {
+      background: linear-gradient(145deg, rgba(15,45,30,0.4), transparent);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 28px;
+      padding: 64px 40px;
       text-align: center;
-      background: linear-gradient(180deg, transparent 0%, rgba(26,107,60,0.06) 100%);
-      border-radius: var(--radius);
-      padding: 60px 24px;
+      position: relative; overflow: hidden;
+    }
+    .download-wrap::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.04), transparent 60%);
+      pointer-events: none;
     }
     .download-flex {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 48px;
-      flex-wrap: wrap;
-      margin-top: 32px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 56px; flex-wrap: wrap;
+      margin-top: 32px; position: relative;
     }
     .qr-box {
-      background: #fff;
-      padding: 16px;
-      border-radius: 16px;
+      background: #fff; padding: 14px; border-radius: 18px;
       display: inline-block;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+      transition: transform 0.4s;
     }
-    .qr-box canvas { display: block; }
-    .qr-label {
-      margin-top: 12px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-    .download-info {
-      text-align: center;
-    }
-    .download-info h3 {
-      font-size: 24px;
-      margin-bottom: 8px;
-    }
-    .download-info p {
-      color: var(--text-muted);
-      margin-bottom: 20px;
-      font-size: 15px;
+    .qr-box:hover { transform: scale(1.03); }
+    .qr-box canvas { display: block; width: 180px; height: 180px; }
+    .qr-label { margin-top: 14px; font-size: 13px; color: var(--text-muted); display: block; }
+    .download-info h3 { font-size: 26px; font-weight: 800; margin-bottom: 6px; color: #fff; }
+    .download-info .meta { color: var(--text-muted); margin-bottom: 24px; font-size: 14px; }
+    .badge-list { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(201,168,76,0.08);
+      padding: 4px 14px; border-radius: 20px;
+      font-size: 12px; color: var(--gold-light);
     }
     .btn-download {
-      background: linear-gradient(135deg, var(--gold) 0%, #b8942e 100%);
-      color: var(--dark);
-      padding: 18px 48px;
-      font-size: 19px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--green-900);
+      padding: 18px 52px; font-size: 18px;
+      box-shadow: 0 4px 24px rgba(201,168,76,0.3);
     }
-    .btn-download:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(201,168,76,0.4);
-    }
-    .btn-download i { font-size: 22px; }
-    .file-size {
-      display: block;
-      margin-top: 10px;
-      font-size: 13px;
-      color: var(--text-muted);
+    .btn-download:hover { transform: translateY(-3px); box-shadow: 0 8px 40px rgba(201,168,76,0.4); }
+    .file-size { display: block; margin-top: 12px; font-size: 13px; color: var(--text-dim); }
+    .download-note { margin-top: 28px; font-size: 13px; color: var(--text-dim); }
+    .download-note code {
+      background: rgba(255,255,255,0.04);
+      padding: 2px 10px; border-radius: 6px;
+      font-size: 12px; direction: ltr; display: inline-block;
     }
 
-    /* ======== Footer ======== */
+    /* Footer */
     footer {
-      text-align: center;
-      padding: 40px 24px;
       border-top: 1px solid rgba(255,255,255,0.04);
+      padding: 48px 24px 32px;
+    }
+    footer .container {
+      display: flex; flex-wrap: wrap;
+      align-items: center; justify-content: space-between;
+      gap: 16px;
+    }
+    footer p { color: var(--text-dim); font-size: 14px; }
+    footer i { color: var(--gold); }
+    .footer-links { display: flex; gap: 24px; align-items: center; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--gold); }
+    .social-links { display: flex; gap: 12px; }
+    .social-link {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
       color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.3s;
       font-size: 14px;
     }
-    footer i { color: var(--gold); }
+    .social-link:hover { background: var(--gold); color: var(--green-900); }
 
-    /* ======== Responsive ======== */
-    @media (max-width: 640px) {
-      .hero { padding: 60px 16px 40px; }
-      .download-flex { gap: 32px; }
-      .features-grid { grid-template-columns: 1fr; }
-      .screenshots-grid { grid-template-columns: repeat(2, 1fr); }
+    /* Floating Download Button (Mobile) */
+    .fab-download {
+      position: fixed;
+      bottom: 24px; left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      z-index: 99;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--green-900);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 15px; font-weight: 700;
+      text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+      box-shadow: 0 8px 32px rgba(201,168,76,0.3);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      white-space: nowrap;
     }
+    .fab-download.visible { transform: translateX(-50%) translateY(0); }
+    .fab-download:hover { transform: translateX(-50%) translateY(-3px); box-shadow: 0 12px 40px rgba(201,168,76,0.4); }
+
+    /* Animations on Scroll */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* Version Timeline */
+    .timeline { max-width: 500px; margin: 24px auto 0; }
+    .timeline-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-version {
+      font-weight: 900; font-size: 14px;
+      color: var(--gold);
+      min-width: 48px;
+    }
+    .timeline-text { color: var(--text-muted); font-size: 14px; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav .container { padding: 0 16px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 16px 40px; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; justify-content: center; }
+      .download-flex { gap: 32px; }
+      .download-wrap { padding: 40px 20px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .showcase-grid { grid-template-columns: repeat(2, 1fr); }
+      footer .container { flex-direction: column; text-align: center; }
+      .fab-download { bottom: 16px; padding: 12px 24px; font-size: 14px; }
+    }
+    @media (max-width: 480px) {
+      .showcase-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .phone-mockup { aspect-ratio: auto; min-height: 200px; padding: 16px 12px; }
+      .badge-list { gap: 6px; }
+      .badge { font-size: 11px; padding: 3px 10px; }
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed; bottom: 100px; left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--green-700);
+      color: var(--text);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 14px;
+      opacity: 0;
+      transition: all 0.4s ease;
+      z-index: 999;
+      pointer-events: none;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* Install banner */
+    .install-banner {
+      position: fixed;
+      bottom: 88px; left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: linear-gradient(135deg, var(--green-700), var(--green-800));
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 16px 24px;
+      border-radius: 16px;
+      display: none;
+      align-items: center;
+      gap: 16px;
+      z-index: 98;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+      max-width: 90vw;
+      backdrop-filter: blur(16px);
+    }
+    .install-banner.show { display: flex; animation: slideUp 0.4s ease forwards; }
+    @keyframes slideUp {
+      from { transform: translateX(-50%) translateY(20px); opacity: 0; }
+      to { transform: translateX(-50%) translateY(0); opacity: 1; }
+    }
+    .install-banner p { font-size: 14px; color: #fff; font-weight: 600; white-space: nowrap; }
+    .install-banner .btn-sm {
+      padding: 8px 20px;
+      border-radius: 50px;
+      border: none;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .install-banner .btn-install { background: var(--gold); color: var(--green-900); }
+    .install-banner .btn-install:hover { transform: scale(1.05); }
+    .install-banner .btn-close { background: transparent; color: var(--text-muted); }
+    .install-banner .btn-close:hover { color: #fff; }
   </style>
 </head>
 <body>
 
-<!-- ======== Hero ======== -->
+<div class="bg-glow"><span></span><span></span><span></span></div>
+<div class="pattern-overlay"></div>
+
+<!-- Navbar -->
+<nav id="navbar">
+  <div class="container">
+    <a href="#" class="nav-logo">
+      <i class="fas fa-mosque"></i>
+      التطبيق الإسلامي
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">المميزات</a></li>
+      <li><a href="#screenshots">صور</a></li>
+      <li><a href="#faq">أسئلة</a></li>
+      <li><a href="#download">تحميل</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
 <section class="hero">
   <div class="hero-badge">
     <i class="fas fa-star"></i>
-   الإصدار 2.0
+    الإصدار 2.0 — متاح الآن مجاناً
     <i class="fas fa-star"></i>
   </div>
-  <div class="hero-icon">
-    <i class="fas fa-mosque"></i>
+  <div class="hero-icon-wrap">
+    <div class="hero-icon"><i class="fas fa-mosque"></i></div>
   </div>
   <h1>التطبيق <span>الإسلامي</span></h1>
-  <p>أوقات الصلاة بدقة متناهية، اتجاه القبلة، أذكار، قرآن كريم، وتذكيرات يومية — كل ما تحتاجه في تطبيق واحد</p>
+  <p class="hero-sub">أوقات الصلاة بدقة عالية، اتجاه القبلة، أذكار الصباح والمساء، قرآن كريم مع التفسير، وتذكيرات يومية — كل ما تحتاجه في تطبيق واحد أنيق</p>
   <div class="hero-buttons">
     <a href="#download" class="btn btn-primary">
       <i class="fas fa-download"></i>
@@ -334,144 +646,358 @@
     </a>
     <a href="#features" class="btn btn-outline">
       <i class="fas fa-arrow-down"></i>
-      اعرف المزيد
+      استكشف المميزات
     </a>
   </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-num">٥</span>
+      <span class="hero-stat-label">أوقات الصلاة</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">١</span>
+      <span class="hero-stat-label">اتجاه القبلة</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">+٣٠</span>
+      <span class="hero-stat-label">أذكار يومية</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">مجاني</span>
+      <span class="hero-stat-label">بدون إعلانات</span>
+    </div>
+  </div>
   <div class="scroll-indicator">
+    <span>اسحب للأسفل</span>
     <i class="fas fa-chevron-down"></i>
   </div>
 </section>
 
-<!-- ======== Features ======== -->
+<!-- Features -->
 <section id="features">
   <div class="container">
-    <h2 class="section-title">مميزات <span>التطبيق</span></h2>
-    <p class="section-sub">كل الأدوات اللي محتاجها في مكان واحد، بتصميم أنيق وأداء سريع</p>
+    <div class="section-header reveal">
+      <div class="section-label"><i class="fas fa-star"></i> مميزات التطبيق</div>
+      <h2 class="section-title">كل ما تحتاجه في <span>مكان واحد</span></h2>
+      <p class="section-desc">صممنا التطبيق بعناية ليكون رفيقك اليومي في العبادة والذكر</p>
+    </div>
     <div class="features-grid">
-      <div class="feature-card">
+      <div class="feature-card reveal">
         <div class="feature-icon"><i class="fas fa-clock"></i></div>
         <h3>أوقات الصلاة</h3>
-        <p>مواقيت دقيقة لجميع الصلوات حسب موقعك الحالي مع تحديث تلقائي</p>
+        <p>مواقيت دقيقة لجميع الصلوات حسب موقعك الحالي مع تحديث تلقائي وتنبيهات صوتية قبل الأذان</p>
       </div>
-      <div class="feature-card">
+      <div class="feature-card reveal reveal-delay-1">
         <div class="feature-icon"><i class="fas fa-compass"></i></div>
         <h3>اتجاه القبلة</h3>
-        <p>بوصلة دقيقة تشير إلى القبلة من أي مكان في العالم</p>
+        <p>بوصلة دقيقة تشير إلى القبلة من أي مكان في العالم مع دقة عالية في التحديد</p>
       </div>
-      <div class="feature-card">
+      <div class="feature-card reveal reveal-delay-2">
         <div class="feature-icon"><i class="fas fa-book-quran"></i></div>
         <h3>القرآن الكريم</h3>
-        <p>قراءة القرآن الكريم مع التفسير والترجمة</p>
+        <p>قراءة القرآن الكريم مع التفسير والترجمة والاستماع إلى تلاوات أشهر القراء</p>
       </div>
-      <div class="feature-card">
+      <div class="feature-card reveal reveal-delay-3">
         <div class="feature-icon"><i class="fas fa-book-open"></i></div>
         <h3>الأذكار</h3>
-        <p>أذكار الصباح والمساء وأدعية متنوعة لتذكر الله في كل وقت</p>
+        <p>أذكار الصباح والمساء وأدعية متنوعة مع إشعارات دورية لتذكر الله في كل وقت</p>
       </div>
-      <div class="feature-card">
+      <div class="feature-card reveal reveal-delay-1">
         <div class="feature-icon"><i class="fas fa-bell"></i></div>
         <h3>تذكيرات الصلاة</h3>
-        <p>إشعارات لأوقات الصلاة والأذان مع إمكانية التخصيص</p>
+        <p>إشعارات لأوقات الصلاة والأذان مع إمكانية تخصيص التذكيرات وتكبيرات العيد</p>
       </div>
-      <div class="feature-card">
+      <div class="feature-card reveal reveal-delay-2">
         <div class="feature-icon"><i class="fas fa-palette"></i></div>
         <h3>تصميم أنيق</h3>
-        <p>واجهة مستخدم جميلة مع دعم الوضع الليلي والعديد من الثيمات</p>
+        <p>واجهة مستخدم عصرية مع دعم الوضع الليلي والعديد من الثيمات المتنوعة</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon"><i class="fas fa-language"></i></div>
+        <h3>دعم اللغات</h3>
+        <p>واجهة بالعربية والإنجليزية مع دعم الترجمة لمعاني القرآن</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-4">
+        <div class="feature-icon"><i class="fas fa-wifi"></i></div>
+        <h3>بدون إنترنت</h3>
+        <p>الأوقات والأذكار تعمل بدون اتصال بالإنترنت بعد التحميل الأول</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======== Screenshots ======== -->
-<section>
+<!-- Screenshots -->
+<section id="screenshots">
   <div class="container">
-    <h2 class="section-title">صور <span>التطبيق</span></h2>
-    <p class="section-sub">لمحة سريعة على واجهة التطبيق وتجربة المستخدم</p>
-    <div class="screenshots-grid">
-      <div class="screenshot">
-        <i class="fas fa-image"></i>
-        الشاشة الرئيسية
+    <div class="section-header reveal">
+      <div class="section-label"><i class="fas fa-image"></i> صور التطبيق</div>
+      <h2 class="section-title">لمحة على <span>التطبيق</span></h2>
+      <p class="section-desc">شكل التطبيق وتجربة المستخدم من أول وهلة</p>
+    </div>
+    <div class="showcase-grid">
+      <div class="phone-mockup reveal">
+        <div class="mock-icon"><i class="fas fa-clock"></i></div>
+        <h4>مواقيت الصلاة</h4>
+        <p>عرض واضح لمواقيت الصلاة مع الوقت المتبقي والإشعارات</p>
+        <span class="mock-label">الشاشة الرئيسية</span>
       </div>
-      <div class="screenshot">
-        <i class="fas fa-image"></i>
-        أوقات الصلاة
+      <div class="phone-mockup reveal reveal-delay-1">
+        <div class="mock-icon"><i class="fas fa-compass"></i></div>
+        <h4>اتجاه القبلة</h4>
+        <p>بوصلة تفاعلية بدقة عالية مع تحديد المواقع</p>
+        <span class="mock-label">القبلة</span>
       </div>
-      <div class="screenshot">
-        <i class="fas fa-image"></i>
-        القبلة
+      <div class="phone-mockup reveal reveal-delay-2">
+        <div class="mock-icon"><i class="fas fa-book-quran"></i></div>
+        <h4>القرآن الكريم</h4>
+        <p>قراءة وتفسير واستماع بخط واضح ومريح</p>
+        <span class="mock-label">القرآن</span>
       </div>
-      <div class="screenshot">
-        <i class="fas fa-image"></i>
-        الإعدادات
+      <div class="phone-mockup reveal reveal-delay-3">
+        <div class="mock-icon"><i class="fas fa-book-open"></i></div>
+        <h4>الأذكار</h4>
+        <p>أذكار الصباح والمساء مع عداد وذكر عشوائي</p>
+        <span class="mock-label">الأذكار</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======== Download ======== -->
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</div>
+      <h2 class="section-title">إجابات لـ <span>أسئلتك</span></h2>
+      <p class="section-desc">أكثر الأسئلة شيوعاً عن التطبيق</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>هل التطبيق مجاني بالكامل؟</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer"><p>نعم، التطبيق مجاني بالكامل ولا يحتوي على أي إعلانات أو اشتراكات مدفوعة.</p></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>هل يعمل التطبيق بدون إنترنت؟</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer"><p>أوقات الصلاة والأذكار تعمل بدون إنترنت. القبلة تحتاج لاتصال مؤقت لأول مرة لتحديد الموقع.</p></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>ما هي أجهزة الأندرويد المدعومة؟</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer"><p>التطبيق يدعم أندرويد 8.0 (API 26) فأحدث. حجم التطبيق صغير ومناسب لجميع الأجهزة.</p></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-3">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>هل التطبيق متوفر على Google Play؟</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer"><p>حالياً يمكن تحميل APK مباشرة من هذا الموقع. نسخة Google Play قيد الإعداد.</p></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-4">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>كيف أحدد اتجاه القبلة بدقة؟</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer"><p>التطبيق يستخدم حساس البوصلة في هاتفك مع GPS لتحديد القبلة بدقة عالية. يفضل معايرة البوصلة أولاً.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Download -->
 <section id="download">
   <div class="container">
-    <div class="download-section">
-      <h2 class="section-title">حمل <span>التطبيق</span> الآن</h2>
-      <p class="section-sub">حمل APK مباشرة من MediaFire</p>
+    <div class="download-wrap reveal">
+      <div class="section-header" style="margin-bottom: 32px;">
+        <div class="section-label"><i class="fas fa-download"></i> التحميل</div>
+        <h2 class="section-title">حمل <span>التطبيق</span> الآن</h2>
+        <p class="section-desc">التطبيق متاح لنظام أندرويد، حمل APK مباشرة ومجاناً</p>
+      </div>
       <div class="download-flex">
         <div>
           <div class="qr-box" id="qrContainer"></div>
-          <p class="qr-label">امسح الكود للتحميل</p>
+          <span class="qr-label"><i class="fas fa-qrcode"></i> امسح الكود للتحميل</span>
         </div>
         <div class="download-info">
           <h3>التطبيق الإسلامي</h3>
-          <p>الإصدار 2.0 • أندرويد 8.0 فأحدث</p>
+          <div class="badge-list">
+            <span class="badge"><i class="fas fa-android"></i> أندرويد 8+</span>
+            <span class="badge"><i class="fas fa-weight-hanging"></i> حجم صغير</span>
+            <span class="badge"><i class="fas fa-shield-alt"></i> آمن</span>
+            <span class="badge"><i class="fas fa-ad"></i> بدون إعلانات</span>
+          </div>
+          <p class="meta">الإصدار 2.0 • آخر تحديث: يوليو 2026</p>
           <a href="#" id="downloadBtn" class="btn btn-download">
             <i class="fas fa-download"></i>
             تحميل APK
           </a>
-          <span class="file-size" id="fileSizeInfo">الرابط هيتضاف قريبًا</span>
+          <span class="file-size" id="fileSizeInfo">انتظر رفع الملف على MediaFire</span>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-version">v2.0</span>
+              <span class="timeline-text">واجهة جديدة، دعم القرآن، تحسين القبلة</span>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-version">v1.0</span>
+              <span class="timeline-text">الإطلاق الأول: أوقات الصلاة والأذكار</span>
+            </div>
+          </div>
         </div>
       </div>
-      <p style="margin-top:24px;font-size:13px;color:var(--text-muted)">
-        <i class="fas fa-info-circle"></i>
-        عشان تضيف ملف APK: ارفعه على MediaFire وحط الرابط مكان <code style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:12px">YOUR_FILE_ID_HERE</code> في ملف <code style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:12px">index.html</code>
-      </p>
     </div>
   </div>
 </section>
 
-<!-- ======== Footer ======== -->
+<!-- Floating Download Button -->
+<a href="#download" class="fab-download" id="fabDownload">
+  <i class="fas fa-download"></i>
+  تحميل APK
+</a>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Install Banner (PWA) -->
+<div class="install-banner" id="installBanner">
+  <i class="fas fa-mosque" style="color: var(--gold); font-size: 24px;"></i>
+  <p>حمل التطبيق على جهازك</p>
+  <button class="btn-sm btn-install" id="installBtn">تثبيت</button>
+  <button class="btn-sm btn-close" id="installClose">✕</button>
+</div>
+
+<!-- Footer -->
 <footer>
   <div class="container">
     <p>التطبيق الإسلامي — <i class="fas fa-heart"></i> سبحان الله وبحمده، سبحان الله العظيم</p>
+    <div class="footer-links">
+      <a href="#features">المميزات</a>
+      <a href="#faq">أسئلة</a>
+      <a href="#download">تحميل</a>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link" aria-label="تويتر"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" class="social-link" aria-label="تيليجرام"><i class="fab fa-telegram-plane"></i></a>
+      </div>
+    </div>
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
 <script>
-  (function() {
-    var mediaFireUrl = "https://www.mediafire.com/file/YOUR_FILE_ID_HERE/Islamic_App_v2.0.apk/file";
-    var downloadBtn = document.getElementById("downloadBtn");
-    downloadBtn.href = mediaFireUrl;
-    downloadBtn.target = "_blank";
+(function() {
+  var mediaFireUrl = "https://www.mediafire.com/file/YOUR_FILE_ID_HERE/Islamic_App_v2.0.apk/file";
+  var downloadBtn = document.getElementById("downloadBtn");
+  downloadBtn.href = mediaFireUrl;
+  downloadBtn.target = "_blank";
 
-    var qrContainer = document.getElementById("qrContainer");
+  // QR Code
+  var qrContainer = document.getElementById("qrContainer");
+  if (typeof QRCode !== "undefined") {
     new QRCode(qrContainer, {
       text: mediaFireUrl,
-      width: 180,
-      height: 180,
-      colorDark: "#0d1b12",
+      width: 180, height: 180,
+      colorDark: "#0a1f14",
       colorLight: "#ffffff",
       correctLevel: QRCode.CorrectLevel.H,
     });
+  }
 
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-      anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-        var target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
-      });
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener("click", function(e) {
+      e.preventDefault();
+      var target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+        // Close mobile nav if open
+      }
     });
-  })();
+  });
+
+  // Navbar scroll
+  var navbar = document.getElementById("navbar");
+  window.addEventListener("scroll", function() {
+    navbar.classList.toggle("scrolled", window.scrollY > 60);
+    // Floating button
+    var fab = document.getElementById("fabDownload");
+    var downloadSection = document.getElementById("download");
+    if (downloadSection) {
+      var rect = downloadSection.getBoundingClientRect();
+      fab.classList.toggle("visible", rect.top > window.innerHeight || rect.bottom < 0);
+    }
+  });
+  // Initial fab state
+  setTimeout(function() {
+    document.getElementById("fabDownload").classList.add("visible");
+  }, 1000);
+
+  // Scroll reveal
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".reveal").forEach(function(el) { observer.observe(el); });
+
+  // FAQ toggle
+  window.toggleFaq = function(el) {
+    var item = el.parentElement;
+    item.classList.toggle("open");
+  };
+
+  // Service Worker
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/sw.js");
+  }
+
+  // PWA Install
+  var deferredPrompt = null;
+  var installBanner = document.getElementById("installBanner");
+  var installBtn = document.getElementById("installBtn");
+  var installClose = document.getElementById("installClose");
+
+  window.addEventListener("beforeinstallprompt", function(e) {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBanner.classList.add("show");
+  });
+
+  installBtn.addEventListener("click", function() {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function() {
+        deferredPrompt = null;
+        installBanner.classList.remove("show");
+      });
+    }
+  });
+
+  installClose.addEventListener("click", function() {
+    installBanner.classList.remove("show");
+  });
+
+  window.addEventListener("appinstalled", function() {
+    installBanner.classList.remove("show");
+  });
+
+  // Toast notification
+  function showToast(msg) {
+    var t = document.getElementById("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    setTimeout(function() { t.classList.remove("show"); }, 3000);
+  }
+})();
 </script>
 </body>
 </html>
