@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Islamic App",
-    "slug": "mobile",
+    "slug": "omar",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./artifacts/mobile/assets/images/icon.png",
