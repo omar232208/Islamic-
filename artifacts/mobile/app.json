@@ -17,7 +17,15 @@
       "supportsTablet": false
     },
     "android": {
-      "package": "com.islamicapp.mobile"
+      "package": "com.islamicapp.mobile",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#2D7A4F"
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ]
     },
     "web": {
       "favicon": "./assets/images/icon.png"
@@ -30,7 +38,15 @@
         }
       ],
       "expo-font",
-      "expo-web-browser"
+      "expo-web-browser",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Islamic App to use your location for prayer times.",
+          "locationWhenInUsePermission": "Allow Islamic App to use your location for prayer times."
+        }
+      ],
+      "expo-sensors"
     ],
     "experiments": {
       "typedRoutes": true,

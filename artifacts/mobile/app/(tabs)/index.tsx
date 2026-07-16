@@ -7,7 +7,10 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+let LinearGradient: any = ({ children, ...props }: any) => {
+  try { const LG = require('expo-linear-gradient').LinearGradient; if (LG) return <LG {...props}>{children}</LG>; } catch {}
+  return <View style={[props.style, { backgroundColor: '#2D7A4F' }]}>{children}</View>;
+};
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { Feather } from '@expo/vector-icons';

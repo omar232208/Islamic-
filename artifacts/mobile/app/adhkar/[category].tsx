@@ -8,7 +8,8 @@ import { Feather } from '@expo/vector-icons';
 import { useColors } from '@/hooks/useColors';
 import { useTranslation } from '@/hooks/useTranslation';
 import { ADHKAR_CATEGORIES, Dhikr } from '@/constants/adhkarData';
-import * as Haptics from 'expo-haptics';
+let Haptics: any = null;
+try { Haptics = require('expo-haptics'); } catch {}
 
 export default function AdhkarCategoryScreen() {
   const { category } = useLocalSearchParams<{ category: string }>();
@@ -28,12 +29,12 @@ export default function AdhkarCategoryScreen() {
   }
 
   const handleCount = (dhikr: Dhikr) => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    try { Haptics?.impactAsync(Haptics.ImpactFeedbackStyle?.Light); } catch {}
     setCounts((prev) => {
       const current = (prev[dhikr.id] ?? 0) + 1;
       if (current >= dhikr.count && !completed.has(dhikr.id)) {
         setCompleted((c) => new Set([...c, dhikr.id]));
-        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+        try { Haptics?.notificationAsync(Haptics.NotificationFeedbackType?.Success); } catch {}
       }
       return { ...prev, [dhikr.id]: current };
     });

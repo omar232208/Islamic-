@@ -11,15 +11,22 @@ import {
   useFonts,
 } from '@expo-google-fonts/inter';
 import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
 import { AppProvider } from '@/context/AppContext';
+import { LogBox, Platform } from 'react-native';
+
+let SplashScreen: any = null;
+try { SplashScreen = require('expo-splash-screen'); } catch {}
 
 let KeyboardProvider: any = null;
 try { KeyboardProvider = require('react-native-keyboard-controller').KeyboardProvider; } catch {}
 
-SplashScreen.preventAutoHideAsync();
+try { SplashScreen?.preventAutoHideAsync(); } catch {}
 
 const queryClient = new QueryClient();
+
+if (Platform.OS === 'android') {
+  LogBox.ignoreLogs(['expo-splash-screen', 'expo-haptics']);
+}
 
 function RootLayoutNav() {
   return (
@@ -48,7 +55,7 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    if (fontsLoaded || fontError) SplashScreen.hideAsync();
+    if (fontsLoaded || fontError) try { SplashScreen?.hideAsync(); } catch {}
   }, [fontsLoaded, fontError]);
 
   if (!fontsLoaded && !fontError) return null;

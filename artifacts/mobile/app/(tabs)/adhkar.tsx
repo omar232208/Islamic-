@@ -10,7 +10,8 @@ import { useColors } from '@/hooks/useColors';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useApp } from '@/context/AppContext';
 import { ADHKAR_CATEGORIES, TASBIH_PRESETS } from '@/constants/adhkarData';
-import * as Haptics from 'expo-haptics';
+let Haptics: any = null;
+try { Haptics = require('expo-haptics'); } catch {}
 
 export default function AdhkarScreen() {
   const colors = useColors();
@@ -22,7 +23,7 @@ export default function AdhkarScreen() {
 
   const handleTasbeeh = () => {
     incrementTasbeeh();
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    try { Haptics?.impactAsync(Haptics.ImpactFeedbackStyle?.Light); } catch {}
   };
 
   const progressPct = preset.target > 0 ? Math.min((tasbeehCurrent % preset.target) / preset.target, 1) : 0;
