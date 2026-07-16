@@ -23,9 +23,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pnpm install --ignore-scripts
+          pnpm install --no-frozen-lockfile --ignore-scripts
           pnpm approve-builds --all
-          pnpm install
+          pnpm install --no-frozen-lockfile
 
       - name: Typecheck
         run: pnpm run typecheck
